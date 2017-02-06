@@ -1,0 +1,453 @@
+
+
+Microchip Technology PIC LITE Macro Assembler V1.38 build -256452561 
+                                                                                               Fri Dec 16 14:07:12 2016
+
+Microchip Technology Omniscient Code Generator v1.38 (Free mode) build 201607010351
+     1                           	processor	16F877A
+     2                           	opt	pw 120
+     3                           	opt	lm
+     4                           	psect	cinit,global,class=CODE,merge=1,delta=2
+     5                           	psect	bssCOMMON,global,class=COMMON,space=1,delta=1
+     6                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1
+     7                           	psect	maintext,global,class=CODE,split=1,delta=2
+     8                           	psect	text1,local,class=CODE,merge=1,delta=2
+     9                           	psect	intentry,global,class=CODE,delta=2
+    10                           	dabs	1,0x7E,2
+    11  0000                     	;# 
+    12  0001                     	;# 
+    13  0002                     	;# 
+    14  0003                     	;# 
+    15  0004                     	;# 
+    16  0005                     	;# 
+    17  0006                     	;# 
+    18  0007                     	;# 
+    19  0008                     	;# 
+    20  0009                     	;# 
+    21  000A                     	;# 
+    22  000B                     	;# 
+    23  000C                     	;# 
+    24  000D                     	;# 
+    25  000E                     	;# 
+    26  000E                     	;# 
+    27  000F                     	;# 
+    28  0010                     	;# 
+    29  0011                     	;# 
+    30  0012                     	;# 
+    31  0013                     	;# 
+    32  0014                     	;# 
+    33  0015                     	;# 
+    34  0015                     	;# 
+    35  0016                     	;# 
+    36  0017                     	;# 
+    37  0018                     	;# 
+    38  0019                     	;# 
+    39  001A                     	;# 
+    40  001B                     	;# 
+    41  001B                     	;# 
+    42  001C                     	;# 
+    43  001D                     	;# 
+    44  001E                     	;# 
+    45  001F                     	;# 
+    46  0081                     	;# 
+    47  0085                     	;# 
+    48  0086                     	;# 
+    49  0087                     	;# 
+    50  0088                     	;# 
+    51  0089                     	;# 
+    52  008C                     	;# 
+    53  008D                     	;# 
+    54  008E                     	;# 
+    55  0091                     	;# 
+    56  0092                     	;# 
+    57  0093                     	;# 
+    58  0094                     	;# 
+    59  0098                     	;# 
+    60  0099                     	;# 
+    61  009C                     	;# 
+    62  009D                     	;# 
+    63  009E                     	;# 
+    64  009F                     	;# 
+    65  010C                     	;# 
+    66  010D                     	;# 
+    67  010E                     	;# 
+    68  010F                     	;# 
+    69  018C                     	;# 
+    70  018D                     	;# 
+    71  000B                     _INTCON	set	11
+    72  0008                     _PORTD	set	8
+    73  0001                     _TMR0	set	1
+    74  005A                     _T0IF	set	90
+    75  005A                     _TMR0IF	set	90
+    76  0081                     _OPTION_REGbits	set	129
+    77  0088                     _TRISD	set	136
+    78                           
+    79                           	psect	cinit
+    80  0015                     start_initialization:	
+    81                           ; #config settings
+    82                           
+    83  0015                     __initialization:	
+    84                           
+    85                           ; Clear objects allocated to COMMON
+    86  0015  01F5               	clrf	__pbssCOMMON& (0+127)
+    87  0016  01F6               	clrf	(__pbssCOMMON+1)& (0+127)
+    88  0017                     end_of_initialization:	
+    89                           ;End of C runtime variable initialization code
+    90                           
+    91  0017                     __end_of__initialization:	
+    92  0017  0183               	clrf	3
+    93  0018  120A  118A  283C   	ljmp	_main	;jump to C main() function
+    94                           
+    95                           	psect	bssCOMMON
+    96  0075                     __pbssCOMMON:	
+    97  0075                     myISR@i:	
+    98  0075                     	ds	2
+    99                           
+   100                           	psect	cstackCOMMON
+   101  0070                     __pcstackCOMMON:	
+   102  0070                     ?_main:	
+   103  0070                     ?_myISR:	
+   104                           ; 1 bytes @ 0x0
+   105                           
+   106  0070                     ??_myISR:	
+   107                           ; 1 bytes @ 0x0
+   108                           
+   109                           
+   110                           ; 1 bytes @ 0x0
+   111  0070                     	ds	5
+   112  0075                     ??_main:	
+   113                           
+   114                           	psect	maintext
+   115  003C                     __pmaintext:	
+   116                           ; 1 bytes @ 0x5
+   117 ;;
+   118 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   119 ;;
+   120 ;; *************** function _main *****************
+   121 ;; Defined at:
+   122 ;;		line 8 in file "Lab5.Ex2..c"
+   123 ;; Parameters:    Size  Location     Type
+   124 ;;		None
+   125 ;; Auto vars:     Size  Location     Type
+   126 ;;		None
+   127 ;; Return value:  Size  Location     Type
+   128 ;;                  1    wreg      void 
+   129 ;; Registers used:
+   130 ;;		wreg, status,2, status,0
+   131 ;; Tracked objects:
+   132 ;;		On entry : B00/0
+   133 ;;		On exit  : 0/0
+   134 ;;		Unchanged: 0/0
+   135 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   136 ;;      Params:         0       0       0       0       0
+   137 ;;      Locals:         0       0       0       0       0
+   138 ;;      Temps:          0       0       0       0       0
+   139 ;;      Totals:         0       0       0       0       0
+   140 ;;Total ram usage:        0 bytes
+   141 ;; Hardware stack levels required when called:    1
+   142 ;; This function calls:
+   143 ;;		Nothing
+   144 ;; This function is called by:
+   145 ;;		Startup code after reset
+   146 ;; This function uses a non-reentrant model
+   147 ;;
+   148                           
+   149                           
+   150                           ;psect for function _main
+   151  003C                     _main:	
+   152                           
+   153                           ;Lab5.Ex2..c: 10: TRISD = 0x00;
+   154                           
+   155                           ;incstack = 0
+   156                           ; Regs used in _main: [wreg+status,2+status,0]
+   157  003C  1683               	bsf	3,5	;RP0=1, select bank1
+   158  003D  1303               	bcf	3,6	;RP1=0, select bank1
+   159  003E  0188               	clrf	8	;volatile
+   160                           
+   161                           ;Lab5.Ex2..c: 11: PORTD = 0x00;
+   162  003F  1283               	bcf	3,5	;RP0=0, select bank0
+   163  0040  1303               	bcf	3,6	;RP1=0, select bank0
+   164  0041  0188               	clrf	8	;volatile
+   165                           
+   166                           ;Lab5.Ex2..c: 12: INTCON = 0xA0;
+   167  0042  30A0               	movlw	160
+   168  0043  008B               	movwf	11	;volatile
+   169                           
+   170                           ;Lab5.Ex2..c: 14: OPTION_REGbits.T0CS = 0;
+   171  0044  1683               	bsf	3,5	;RP0=1, select bank1
+   172  0045  1303               	bcf	3,6	;RP1=0, select bank1
+   173  0046  1281               	bcf	1,5	;volatile
+   174                           
+   175                           ;Lab5.Ex2..c: 15: OPTION_REGbits.PSA = 0;
+   176  0047  1181               	bcf	1,3	;volatile
+   177                           
+   178                           ;Lab5.Ex2..c: 16: OPTION_REGbits.PS = 7;
+   179  0048  3007               	movlw	7
+   180  0049  0481               	iorwf	1,f	;volatile
+   181  004A                     l17:	
+   182                           ;Lab5.Ex2..c: 17: while(1);
+   183                           
+   184  004A  284A               	goto	l17
+   185  004B                     __end_of_main:	
+   186                           
+   187                           	psect	text1
+   188  001B                     __ptext1:	
+   189 ;; *************** function _myISR *****************
+   190 ;; Defined at:
+   191 ;;		line 19 in file "Lab5.Ex2..c"
+   192 ;; Parameters:    Size  Location     Type
+   193 ;;		None
+   194 ;; Auto vars:     Size  Location     Type
+   195 ;;		None
+   196 ;; Return value:  Size  Location     Type
+   197 ;;                  1    wreg      void 
+   198 ;; Registers used:
+   199 ;;		wreg, status,2, status,0
+   200 ;; Tracked objects:
+   201 ;;		On entry : 0/0
+   202 ;;		On exit  : 0/0
+   203 ;;		Unchanged: 0/0
+   204 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   205 ;;      Params:         0       0       0       0       0
+   206 ;;      Locals:         0       0       0       0       0
+   207 ;;      Temps:          5       0       0       0       0
+   208 ;;      Totals:         5       0       0       0       0
+   209 ;;Total ram usage:        5 bytes
+   210 ;; Hardware stack levels used:    1
+   211 ;; This function calls:
+   212 ;;		Nothing
+   213 ;; This function is called by:
+   214 ;;		Interrupt level 1
+   215 ;; This function uses a non-reentrant model
+   216 ;;
+   217                           
+   218                           
+   219                           ;psect for function _myISR
+   220  001B                     _myISR:	
+   221                           
+   222                           ;Lab5.Ex2..c: 20: if(TMR0IF){
+   223  001B  1D0B               	btfss	11,2	;volatile
+   224  001C  2831               	goto	i1l27
+   225                           
+   226                           ;Lab5.Ex2..c: 21: TMR0=156;
+   227  001D  309C               	movlw	156
+   228  001E  0081               	movwf	1	;volatile
+   229                           
+   230                           ;Lab5.Ex2..c: 22: static int i;
+   231                           ;Lab5.Ex2..c: 23: i++;
+   232  001F  3001               	movlw	1
+   233  0020  07F5               	addwf	myISR@i,f
+   234  0021  1803               	skipnc
+   235  0022  0AF6               	incf	myISR@i+1,f
+   236  0023  3000               	movlw	0
+   237  0024  07F6               	addwf	myISR@i+1,f
+   238                           
+   239                           ;Lab5.Ex2..c: 24: if(i==32){
+   240  0025  3020               	movlw	32
+   241  0026  0675               	xorwf	myISR@i,w
+   242  0027  0476               	iorwf	myISR@i+1,w
+   243  0028  1D03               	btfss	3,2
+   244  0029  2830               	goto	i1l507
+   245                           
+   246                           ;Lab5.Ex2..c: 25: PORTD++;
+   247  002A  3001               	movlw	1
+   248  002B  00F0               	movwf	??_myISR
+   249  002C  0870               	movf	??_myISR,w
+   250  002D  0788               	addwf	8,f	;volatile
+   251                           
+   252                           ;Lab5.Ex2..c: 27: i=0;
+   253  002E  01F5               	clrf	myISR@i
+   254  002F  01F6               	clrf	myISR@i+1
+   255  0030                     i1l507:	
+   256                           
+   257                           ;Lab5.Ex2..c: 28: }T0IF=0;
+   258  0030  110B               	bcf	11,2	;volatile
+   259  0031                     i1l27:	
+   260  0031  0874               	movf	??_myISR+4,w
+   261  0032  00FF               	movwf	127
+   262  0033  0873               	movf	??_myISR+3,w
+   263  0034  008A               	movwf	10
+   264  0035  0872               	movf	??_myISR+2,w
+   265  0036  0084               	movwf	4
+   266  0037  0E71               	swapf	(??_myISR+1)^(0+-128),w
+   267  0038  0083               	movwf	3
+   268  0039  0EFE               	swapf	126,f
+   269  003A  0E7E               	swapf	126,w
+   270  003B  0009               	retfie
+   271  003C                     __end_of_myISR:	
+   272  007E                     btemp	set	126	;btemp
+   273  007E                     wtemp	set	126
+   274  007E                     wtemp0	set	126
+   275  0080                     wtemp1	set	128
+   276  0082                     wtemp2	set	130
+   277  0084                     wtemp3	set	132
+   278  0086                     wtemp4	set	134
+   279  0088                     wtemp5	set	136
+   280  007F                     wtemp6	set	127
+   281  007E                     ttemp	set	126
+   282  007E                     ttemp0	set	126
+   283  0081                     ttemp1	set	129
+   284  0084                     ttemp2	set	132
+   285  0087                     ttemp3	set	135
+   286  007F                     ttemp4	set	127
+   287  007E                     ltemp	set	126
+   288  007E                     ltemp0	set	126
+   289  0082                     ltemp1	set	130
+   290  0086                     ltemp2	set	134
+   291  0080                     ltemp3	set	128
+   292                           
+   293                           	psect	intentry
+   294  0004                     __pintentry:	
+   295                           ;incstack = 0
+   296                           ; Regs used in _myISR: [wreg+status,2+status,0]
+   297                           
+   298  0004                     interrupt_function:	
+   299  007E                     saved_w	set	btemp
+   300  0004  00FE               	movwf	btemp
+   301  0005  0E03               	swapf	3,w
+   302  0006  00F1               	movwf	??_myISR+1
+   303  0007  0804               	movf	4,w
+   304  0008  00F2               	movwf	??_myISR+2
+   305  0009  080A               	movf	10,w
+   306  000A  00F3               	movwf	??_myISR+3
+   307  000B  1283               	bcf	3,5	;RP0=0, select bank0
+   308  000C  1303               	bcf	3,6	;RP1=0, select bank0
+   309  000D  087F               	movf	btemp+1,w
+   310  000E  00F4               	movwf	??_myISR+4
+   311  000F  120A  118A  281B   	ljmp	_myISR
+
+
+Data Sizes:
+    Strings     0
+    Constant    0
+    Data        0
+    BSS         2
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMMON           14      5       7
+    BANK0            80      0       0
+    BANK1            80      0       0
+    BANK3            96      0       0
+    BANK2            96      0       0
+
+Pointer List with Targets:
+
+    None.
+
+Critical Paths under _main in COMMON
+
+    None.
+
+Critical Paths under _myISR in COMMON
+
+    None.
+
+Critical Paths under _main in BANK0
+
+    None.
+
+Critical Paths under _myISR in BANK0
+
+    None.
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Critical Paths under _myISR in BANK1
+
+    None.
+
+Critical Paths under _main in BANK3
+
+    None.
+
+Critical Paths under _myISR in BANK3
+
+    None.
+
+Critical Paths under _main in BANK2
+
+    None.
+
+Critical Paths under _myISR in BANK2
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 0     0      0       0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 0
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (1) _myISR                                                5     5      0       0
+                                              0 COMMON     5     5      0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 1
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+
+ _myISR (ROOT)
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BITCOMMON            E      0       0       0        0.0%
+EEDATA             100      0       0       0        0.0%
+NULL                 0      0       0       0        0.0%
+CODE                 0      0       0       0        0.0%
+COMMON               E      5       7       1       50.0%
+BITSFR0              0      0       0       1        0.0%
+SFR0                 0      0       0       1        0.0%
+BITSFR1              0      0       0       2        0.0%
+SFR1                 0      0       0       2        0.0%
+STACK                0      0       0       2        0.0%
+ABS                  0      0       7       3        0.0%
+BITBANK0            50      0       0       4        0.0%
+BITSFR3              0      0       0       4        0.0%
+SFR3                 0      0       0       4        0.0%
+BANK0               50      0       0       5        0.0%
+BITSFR2              0      0       0       5        0.0%
+SFR2                 0      0       0       5        0.0%
+BITBANK1            50      0       0       6        0.0%
+BANK1               50      0       0       7        0.0%
+BITBANK3            60      0       0       8        0.0%
+BANK3               60      0       0       9        0.0%
+BITBANK2            60      0       0      10        0.0%
+BANK2               60      0       0      11        0.0%
+DATA                 0      0       7      12        0.0%
+
+
+Microchip Technology PIC Macro Assembler V1.38 build -256452561 
+Symbol Table                                                                                   Fri Dec 16 14:07:12 2016
+
+                     l17 004A                      fsr0 0004                     _T0IF 005A  
+                   i1l27 0031                     _TMR0 0001                     _main 003C  
+                   btemp 007E                     ltemp 007E                     start 0012  
+                   ttemp 007E                     wtemp 007E                    ?_main 0070  
+                  i1l507 0030                    _PORTD 0008                    _TRISD 0088  
+                  _myISR 001B                    pclath 000A                    ltemp0 007E  
+                  ltemp1 0082                    ltemp2 0086                    ltemp3 0080  
+                  ttemp0 007E                    ttemp1 0081                    ttemp2 0084  
+                  ttemp3 0087                    ttemp4 007F                    status 0003  
+                  wtemp0 007E                    wtemp1 0080                    wtemp2 0082  
+                  wtemp3 0084                    wtemp4 0086                    wtemp5 0088  
+                  wtemp6 007F          __initialization 0015             __end_of_main 004B  
+                 ??_main 0075                   ?_myISR 0070                   _INTCON 000B  
+                 _TMR0IF 005A                   myISR@i 0075                   saved_w 007E  
+__end_of__initialization 0017           __pcstackCOMMON 0070            __end_of_myISR 003C  
+         _OPTION_REGbits 0081                  ??_myISR 0070               __pmaintext 003C  
+             __pintentry 0004                  __ptext1 001B     end_of_initialization 0017  
+    start_initialization 0015              __pbssCOMMON 0075                ___latbits 0002  
+         __size_of_myISR 0021        interrupt_function 0004            __size_of_main 000F  
+               intlevel1 0000  
